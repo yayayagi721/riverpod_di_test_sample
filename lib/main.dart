@@ -1,10 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:test_sample/repository/address_repository_impl.dart';
+import 'package:test_sample/view_model/address_list_view_model.dart';
 
 void main() {
   runApp(const MyWidget(title: "hoge", message: "huga"));
 }
 
-class MyWidget extends StatelessWidget {
+final addressRepositoryProvider = Provider.autoDispose(
+  (_) => AddressRepositoryImpl(),
+);
+
+final addressListViewModelProvider = StateNotifierProvider.autoDispose(
+  (ref) => (AddressListViewModel(ref.read(addressRepositoryProvider))),
+);
+
+class MyWidget extends HookWidget {
   const MyWidget({
     Key? key,
     required this.title,
@@ -24,6 +36,9 @@ class MyWidget extends StatelessWidget {
         ),
         body: Center(
           child: Text(message),
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {},
         ),
       ),
     );
