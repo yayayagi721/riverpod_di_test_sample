@@ -16,7 +16,7 @@ void main() {
   // with widgets in the test environment.
   testWidgets('MyWidget has a title and message', (WidgetTester tester) async {
     // Create the widget by telling the tester to build it.
-    await tester.pumpWidget(const MyWidget(title: 'T', message: 'M'));
+    await tester.pumpWidget(const MyWidget());
 
     // Create the Finders.
     final titleFinder = find.text('T');
