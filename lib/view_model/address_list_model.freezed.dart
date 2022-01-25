@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'address_list.dart';
+part of 'address_list_model.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,43 +15,44 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-class _$AddressListTearOff {
-  const _$AddressListTearOff();
+class _$AddressListModelTearOff {
+  const _$AddressListModelTearOff();
 
-  _AddressList call({List<AddressInfo> addresslist = const []}) {
-    return _AddressList(
+  _AddressListModel call({List<AddressInfo> addresslist = const []}) {
+    return _AddressListModel(
       addresslist: addresslist,
     );
   }
 }
 
 /// @nodoc
-const $AddressList = _$AddressListTearOff();
+const $AddressListModel = _$AddressListModelTearOff();
 
 /// @nodoc
-mixin _$AddressList {
+mixin _$AddressListModel {
   List<AddressInfo> get addresslist => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $AddressListCopyWith<AddressList> get copyWith =>
+  $AddressListModelCopyWith<AddressListModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $AddressListCopyWith<$Res> {
-  factory $AddressListCopyWith(
-          AddressList value, $Res Function(AddressList) then) =
-      _$AddressListCopyWithImpl<$Res>;
+abstract class $AddressListModelCopyWith<$Res> {
+  factory $AddressListModelCopyWith(
+          AddressListModel value, $Res Function(AddressListModel) then) =
+      _$AddressListModelCopyWithImpl<$Res>;
   $Res call({List<AddressInfo> addresslist});
 }
 
 /// @nodoc
-class _$AddressListCopyWithImpl<$Res> implements $AddressListCopyWith<$Res> {
-  _$AddressListCopyWithImpl(this._value, this._then);
+class _$AddressListModelCopyWithImpl<$Res>
+    implements $AddressListModelCopyWith<$Res> {
+  _$AddressListModelCopyWithImpl(this._value, this._then);
 
-  final AddressList _value;
+  final AddressListModel _value;
   // ignore: unused_field
-  final $Res Function(AddressList) _then;
+  final $Res Function(AddressListModel) _then;
 
   @override
   $Res call({
@@ -67,30 +68,31 @@ class _$AddressListCopyWithImpl<$Res> implements $AddressListCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$AddressListCopyWith<$Res>
-    implements $AddressListCopyWith<$Res> {
-  factory _$AddressListCopyWith(
-          _AddressList value, $Res Function(_AddressList) then) =
-      __$AddressListCopyWithImpl<$Res>;
+abstract class _$AddressListModelCopyWith<$Res>
+    implements $AddressListModelCopyWith<$Res> {
+  factory _$AddressListModelCopyWith(
+          _AddressListModel value, $Res Function(_AddressListModel) then) =
+      __$AddressListModelCopyWithImpl<$Res>;
   @override
   $Res call({List<AddressInfo> addresslist});
 }
 
 /// @nodoc
-class __$AddressListCopyWithImpl<$Res> extends _$AddressListCopyWithImpl<$Res>
-    implements _$AddressListCopyWith<$Res> {
-  __$AddressListCopyWithImpl(
-      _AddressList _value, $Res Function(_AddressList) _then)
-      : super(_value, (v) => _then(v as _AddressList));
+class __$AddressListModelCopyWithImpl<$Res>
+    extends _$AddressListModelCopyWithImpl<$Res>
+    implements _$AddressListModelCopyWith<$Res> {
+  __$AddressListModelCopyWithImpl(
+      _AddressListModel _value, $Res Function(_AddressListModel) _then)
+      : super(_value, (v) => _then(v as _AddressListModel));
 
   @override
-  _AddressList get _value => super._value as _AddressList;
+  _AddressListModel get _value => super._value as _AddressListModel;
 
   @override
   $Res call({
     Object? addresslist = freezed,
   }) {
-    return _then(_AddressList(
+    return _then(_AddressListModel(
       addresslist: addresslist == freezed
           ? _value.addresslist
           : addresslist // ignore: cast_nullable_to_non_nullable
@@ -101,8 +103,8 @@ class __$AddressListCopyWithImpl<$Res> extends _$AddressListCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_AddressList implements _AddressList {
-  const _$_AddressList({this.addresslist = const []});
+class _$_AddressListModel implements _AddressListModel {
+  const _$_AddressListModel({this.addresslist = const []});
 
   @JsonKey()
   @override
@@ -110,14 +112,14 @@ class _$_AddressList implements _AddressList {
 
   @override
   String toString() {
-    return 'AddressList(addresslist: $addresslist)';
+    return 'AddressListModel(addresslist: $addresslist)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _AddressList &&
+            other is _AddressListModel &&
             const DeepCollectionEquality()
                 .equals(other.addresslist, addresslist));
   }
@@ -128,17 +130,18 @@ class _$_AddressList implements _AddressList {
 
   @JsonKey(ignore: true)
   @override
-  _$AddressListCopyWith<_AddressList> get copyWith =>
-      __$AddressListCopyWithImpl<_AddressList>(this, _$identity);
+  _$AddressListModelCopyWith<_AddressListModel> get copyWith =>
+      __$AddressListModelCopyWithImpl<_AddressListModel>(this, _$identity);
 }
 
-abstract class _AddressList implements AddressList {
-  const factory _AddressList({List<AddressInfo> addresslist}) = _$_AddressList;
+abstract class _AddressListModel implements AddressListModel {
+  const factory _AddressListModel({List<AddressInfo> addresslist}) =
+      _$_AddressListModel;
 
   @override
   List<AddressInfo> get addresslist;
   @override
   @JsonKey(ignore: true)
-  _$AddressListCopyWith<_AddressList> get copyWith =>
+  _$AddressListModelCopyWith<_AddressListModel> get copyWith =>
       throw _privateConstructorUsedError;
 }

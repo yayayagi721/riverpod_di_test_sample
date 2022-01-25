@@ -1,15 +1,16 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:test_sample/main.dart';
 import 'package:test_sample/model/address_info.dart';
-import 'package:test_sample/repository/address_repository.dart';
-import 'package:test_sample/view_model/address_list.dart';
+import 'package:test_sample/view_model/address_list_model.dart';
 
-class AddressListViewModel extends StateNotifier<AddressList> {
-  AddressListViewModel(this._addressRepository) : super(AddressList());
+class AddressListViewModel extends StateNotifier<AddressListModel> {
+  AddressListViewModel(this.read) : super(const AddressListModel());
 
-  final AddressRepository _addressRepository;
+  final Reader read;
 
   Future addAddress(double lat, double lng) async {
-    final address = await _addressRepository.get(lat, lng);
+    final addressRepository = read(addressRepositoryProvider);
+    final address = await addressRepository.get(lat, lng);
     final addressInfo = AddressInfo(address, lat, lng);
     state.copyWith(addresslist: [...state.addresslist, addressInfo]);
   }

@@ -3,6 +3,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:test_sample/model/address_info.dart';
 import 'package:test_sample/repository/address_repository_impl.dart';
+import 'package:test_sample/view_model/address_list_model.dart';
 import 'package:test_sample/view_model/address_list_view_model.dart';
 
 void main() {
@@ -13,8 +14,9 @@ final addressRepositoryProvider = Provider.autoDispose(
   (_) => AddressRepositoryImpl(),
 );
 
-final addressListViewModelProvider = StateNotifierProvider.autoDispose(
-  (ref) => (AddressListViewModel(ref.read(addressRepositoryProvider))),
+final addressListViewModelProvider =
+    StateNotifierProvider.autoDispose<AddressListViewModel, AddressListModel>(
+  (ref) => AddressListViewModel(ref.read),
 );
 
 class MyWidget extends StatelessWidget {
@@ -35,18 +37,15 @@ class MyWidget extends StatelessWidget {
   }
 }
 
-class AddressList extends HookConsumerWidget {
+class AddressList extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final vm = ref.watch(addressListViewModelProvider);
+    final addresslist = vm.addresslist;
 
     return ListView(
-      children: vm.addressList.map((e) => _card(e.address)),
+      children: addresslist.map((e) => _card(e.address)).toList(),
     );
-  }
-
-  List<Widget> _listContents(List<AddressInfo> addressList) {
-    return;
   }
 
   Widget _card(String address) {
